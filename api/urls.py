@@ -3,4 +3,5 @@ from api import views
 
 urlpatterns=[
     path('',views.usersApi),
+    path('articles',views.articleApi),
 ]

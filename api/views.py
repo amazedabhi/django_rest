@@ -6,6 +6,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from api import serializers
+from api import models
 
 #We have created this class just for example we will fetch
 #data for serializers from models created
@@ -39,4 +40,11 @@ def usersApi(request):
         student3
     ],many=True)
     #Response will convert above dictionary to json repsonse
+    return Response(response.data)
+
+
+@api_view()
+def articleApi(request):
+    article = models.Article.objects.all()
+    response = serializers.ArticleSerializer(article,many=True)
     return Response(response.data)
