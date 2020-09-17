@@ -23,3 +23,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Article
         fields = '__all__' 
+
+    def create(self,*args):
+        print("Hey this is great")
+        return super().create(*args,**kwargs)
